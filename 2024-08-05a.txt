@@ -1,0 +1,26 @@
+setcpm(16);
+
+bass: s("bd*5 - bd*3 - bd*3 - bd -")
+  .brak()
+  .crush("<4 8>")
+  .decay("0.5 0.2")
+  .gain(slider(0.649))
+  .pan("<0.5 1.0 0.5 0.0>")
+  ._pianoroll( {labels:1} )
+
+toms: s("- mt*[2 4 8 16 32] ht*<3 1 2> lt*<1 3 2>")
+  .crush(12)
+  .gain(slider(0.162))
+  ._pianoroll( {labels: 1} )
+
+
+snare: s("hh*4 sd sd*[2 4 8 16 32 64 128 256] cp")
+  .crush("4")
+  .gain(slider(0.095))
+  ._pianoroll( {labels: 1})
+
+
+
+/* s("<[bd sd] bd bd <sd sd*2>>,hh*2").crush("<16 8 7 6 5 4 3 2>")
+._pianoroll({ labels: 1 })
+  */
