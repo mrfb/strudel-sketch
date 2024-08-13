@@ -1,0 +1,26 @@
+// 2024-08-13b
+// mrfb
+
+$kick: s("bd bd [bd bd] bd")
+  .delay(0.5)
+  .room(1)
+  .bank("YamahaRM50")
+  .gain(2.5)
+  .lpf(200)
+  .almostNever(hush)
+
+$brass: s("hh!7 <oh oh oh [rim!2 oh]>")
+  .bank("YamahaRM50")
+  .sometimes(hush)
+
+$keys: n(perlin.range(0, 8).segment("<<16 12 32> 8>"))
+  .sound("sine, square")
+  .scale("C:ritusen")
+  .add(rand.range(-1, 1))
+  .sometimes(hush)
+  .adsr("<0.1 0.0>:0.1:<0.5 0.3 1.0>:<0.1 0.5>")
+  .gain(slider(1))
+  .jux(rev)
+  .spiral({steady:0.95, logSpiral:1})
+
+setcpm(35)

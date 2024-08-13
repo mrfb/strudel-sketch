@@ -1,0 +1,35 @@
+// 2024-08-13
+// mrfb
+
+samples({
+  'moog': { 'g3': 'moog/005_Mighty%20Moog%20G3.wav' },
+}, 'github:tidalcycles/dirt-samples');
+
+drums: s("[rim:0 rim:1]!4")
+  .gain(rand.range(0.1, 0.9))
+  .lpf(sine.range(800, 1600))
+  .delay("0.5")
+  .sometimesBy(slider(0.278), hush)
+  .gain(slider(0.81))
+
+mereChaos: s("<rd cr cb insect crow metal jazz space>!8")
+  .sometimesBy(slider(0.99), hush)
+  .gain(slider(1))
+
+kick: s("bd!4, hh!3 oh")
+  .gain(rand)
+  .delay(0.5)
+  .sometimesBy(slider(0.41), hush)
+  .gain(slider(0.45))
+
+// make some noise for ken perlin on the moog, everybody
+keyboard: n(perlin.range(0,12).segment(8))
+  .add("[-1 0 1 0]!2")
+  .scale("A:major")
+  .s("moog")
+  .clip("0.25 0.5 1.0 2.0")
+  .room("2.0 1.0 0.5 0.25")
+  //.hpf(sine.range(2000, 500))
+  .jux(rev)
+  .sometimesBy(slider(0.379), hush)
+  .gain(slider(0.849))
